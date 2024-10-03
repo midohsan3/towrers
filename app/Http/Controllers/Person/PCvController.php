@@ -149,7 +149,7 @@ class PCvController extends Controller
         ], [
             'job.required' => __('general.Cant complete Your Request Now'),
             'job.integer'  => __('general.Cant complete Your Request Now'),
-            'job.exists'    => __('general.Cant complete Your Request Now'),
+            'job.exists'   => __('general.Cant complete Your Request Now'),
 
             'name_ar.required' => __('general.Field Is Required'),
             'name_ar.string'    => __('general.Format Not Matching'),
@@ -192,7 +192,7 @@ class PCvController extends Controller
         $job->description_en  = $req->description_en;
         $job->description_ar  = $req->description_ar;
         $job->experience      = $req->experience;
-        $job->cv                 = $fileName;
+        $job->cv              = $fileName;
         $job->whats_app      = $req->whatsapp;
         $job->phone            = $req->phone;
         $job->email             = $req->email;

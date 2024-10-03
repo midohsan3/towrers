@@ -842,13 +842,7 @@
                 <div class="col-xl-6">
                     <div class="card">
                         <div class="card-body d-flex justify-content-between align-items-center">
-                            @if ($cv->user_id !==null)
-                            <img src="{{ url('storage/app/public/imgs/users/'.$cv->userJob->profile_pic) }}"
-                                alt="{{ $cv->name_en }}" class="rounded-circle me-3" width="64" height="64" />
-                            @else
-                            <img src="{{ url('imgs/cv.png') }}" alt="{{ $job->name_en }}" class="rounded-circle me-3"
-                                width="64" height="64" />
-                            @endif
+                            <img src="{{ url('imgs/cv.png') }}" alt="{{ $job->name_en }}" class="rounded-circle me-3" width="64" height="64" />
                             <div>
                                 <h4 class="text-center mb-0 me-4">
                                     <a href="#" class="text-primary">

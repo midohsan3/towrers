@@ -1,18 +1,18 @@
 @extends('layouts.admin')
 
-{{-- 
-  =====================
-  =TITLE
-  =====================
-  --}}
+{{--
+=====================
+=TITLE
+=====================
+--}}
 @section('title')
 {{ __('general.Personal Accounts') }}
 @endsection
-{{-- 
-  =====================
-  =PAGE CONTENT
-  =====================
-  --}}
+{{--
+=====================
+=PAGE CONTENT
+=====================
+--}}
 @section('content')
 <div class="nk-content ">
   <div class="container-fluid">
@@ -55,9 +55,12 @@
                           data-toggle="dropdown">{{ $list_title }}</a>
                         <div class="dropdown-menu dropdown-menu-right">
                           <ul class="link-list-opt no-bdr">
-                            <li><a href="{{ route('person.index') }}"><span>{{ __('general.All') }}</span></a></li>
-                            <li><a href="===="><span>{{ __('general.Active') }}</span></a></li>
-                            <li><a href="====="><span>{{ __('general.Inactive') }}</span></a>
+                            <li><a href="{{ route('person.index') }}"><span>{{
+                                  __('general.All') }}</span></a></li>
+                            <li><a href="===="><span>{{ __('general.Active') }}</span></a>
+                            </li>
+                            <li><a href="====="><span>{{ __('general.Inactive')
+                                  }}</span></a>
                             </li>
                             <li><a href="#"><span>{{ __('general.Trashed') }}</span></a>
                             </li>
@@ -101,14 +104,18 @@
                         <span class="sub-text">{{ __('general.Name') }}</span>
                       </th>
 
-                      <th class="nk-tb-col tb-col-md"><span class="sub-text">{{ __('company.Communication') }}</span>
+                      <th class="nk-tb-col tb-col-md"><span class="sub-text">{{
+                          __('company.Communication') }}</span>
                       </th>
 
-                      <th class="nk-tb-col tb-col-md"><span class="sub-text">{{ __('job.CV') }}</span></th>
+                      <th class="nk-tb-col tb-col-md"><span class="sub-text">{{ __('job.CV')
+                          }}</span></th>
 
-                      <th class="nk-tb-col tb-col-md"><span class="sub-text">{{ __('general.Status') }}</span></th>
+                      <th class="nk-tb-col tb-col-md"><span class="sub-text">{{
+                          __('general.Status') }}</span></th>
 
-                      <th class="nk-tb-col tb-col-md"><span class="sub-text">{{ __('company.Added By') }}</span></th>
+                      <th class="nk-tb-col tb-col-md"><span class="sub-text">{{ __('company.Added
+                          By') }}</span></th>
 
                       <th class="nk-tb-col nk-tb-col-tools text-right">
                       </th>
@@ -127,7 +134,8 @@
                               <img src="{{ url('storage/app/public/imgs/users/'.$user->profile_pic) }}"
                                 alt="{{ $user->name }}" />
                               @else
-                              <span class="text-uppercase">{{ substr($user->name,0,2) }}</span>
+                              <span class="text-uppercase">{{ substr($user->name,0,2)
+                                }}</span>
                               @endif
                             </div>
                             <div class="user-info">
@@ -145,7 +153,8 @@
                         <span>
                           <a href="{{ route('communication.index',$user->id) }}">
                             @if (array_key_exists($user->id, $communications))
-                            {{ $communications[$user->id] }}<span> {{ __('company.Chanel') }}</span>
+                            {{ $communications[$user->id] }}<span> {{ __('company.Chanel')
+                              }}</span>
                           </a>
                           @else
                           {{ __('company.No chanels Yet') }}
@@ -160,7 +169,6 @@
                           @else
                           <span class="text-danger">{{ __('users.Dont Have CV') }}</span>
                           @endif
-
                         </span>
                       </td>
 
@@ -174,7 +182,8 @@
 
                       <td class="nk-tb-col tb-col-md">
 
-                        <span>{{ __('company.In') }}:</span><span>{{ date('d M Y', strtotime($user->created_at)) }}</span>
+                        <span>{{ __('company.In') }}:</span><span>{{ date('d M Y',
+                          strtotime($user->created_at)) }}</span>
                       </td>
 
                       <td class="nk-tb-col nk-tb-col-tools">
@@ -236,7 +245,8 @@
                                   <li>
                                     <a href="#" class="text-primary">
                                       <em class="icon ni ni-eye"></em>
-                                      <span>{{ __('general.View Details') }}</span>
+                                      <span>{{ __('general.View Details')
+                                        }}</span>
                                     </a>
                                   </li>
 
@@ -282,7 +292,8 @@
                                       data-sectionnameen="{{ $user->name_en }}" data-toggle="modal"
                                       data-target="#changPassMdl">
                                       <i class="icon fal fa-user-lock"></i>
-                                      <span>{{ __('company.Change Password') }}</span>
+                                      <span>{{ __('company.Change Password')
+                                        }}</span>
                                     </a>
                                   </li>
 
@@ -347,11 +358,11 @@
   </div>
 </div>
 
-{{-- 
-  ======================
-  =MODELS
-  ======================
-  --}}
+{{--
+======================
+=MODELS
+======================
+--}}
 
 {{--==========================
 =ACTIVATE MODAL
@@ -384,8 +395,8 @@
             <div class="col">
               <div class="form-group">
                 <div class="form-control-wrap">
-                  <button type="button" class="btn btn-secondary"
-                    data-dismiss="modal">{{ __('general.Close') }}</button>
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">{{
+                    __('general.Close') }}</button>
 
                   <button type="submit" class="btn btn-success">{{ __('general.Activate') }}</button>
                 </div>
@@ -402,8 +413,8 @@
 </div>
 
 {{-- ==========================
-        =====DEACTIVATE MODAL
-        ========================== --}}
+=====DEACTIVATE MODAL
+========================== --}}
 
 <div class="modal fade zoon" tabindex="-1" id="deactivateMdl">
   <div class="modal-dialog" role="document">
@@ -432,8 +443,8 @@
             <div class="col">
               <div class="form-group">
                 <div class="form-control-wrap">
-                  <button type="button" class="btn btn-secondary"
-                    data-dismiss="modal">{{ __('general.Close') }}</button>
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">{{
+                    __('general.Close') }}</button>
 
                   <button type="submit" class="btn btn-danger">{{ __('general.Deactivate') }}</button>
                 </div>
@@ -449,11 +460,11 @@
   </div>
 </div>
 
-{{-- 
-  ======================
-  =CHANGE PASSWORD
-  ======================
-  --}}
+{{--
+======================
+=CHANGE PASSWORD
+======================
+--}}
 
 <div class="modal fade zoon" tabindex="-1" id="changPassMdl">
   <div class="modal-dialog" role="document">
@@ -501,8 +512,8 @@
             <div class="col">
               <div class="form-group">
                 <div class="form-control-wrap">
-                  <button type="button" class="btn btn-secondary"
-                    data-dismiss="modal">{{ __('general.Close') }}</button>
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">{{
+                    __('general.Close') }}</button>
 
                   <button type="submit" class="btn btn-primary">{{ __('company.Change') }}</button>
                 </div>
@@ -518,11 +529,11 @@
   </div>
 </div>
 
-{{-- 
-  ======================
-  =DELETE
-  ======================
-  --}}
+{{--
+======================
+=DELETE
+======================
+--}}
 
 <div class="modal fade zoon" tabindex="-1" id="deleteMdl">
   <div class="modal-dialog" role="document">
@@ -551,8 +562,8 @@
             <div class="col">
               <div class="form-group">
                 <div class="form-control-wrap">
-                  <button type="button" class="btn btn-secondary"
-                    data-dismiss="modal">{{ __('general.Close') }}</button>
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">{{
+                    __('general.Close') }}</button>
 
                   <button type="submit" class="btn btn-danger">{{ __('general.Delete') }}</button>
                 </div>
@@ -569,15 +580,15 @@
 </div>
 
 @endsection
-{{-- 
-  =====================
-  =PAGE SCRIPTS
-  =====================
-  --}}
+{{--
+=====================
+=PAGE SCRIPTS
+=====================
+--}}
 @section('scripts')
 <script>
   'use strict';
-        $(function() {      
+        $(function() {
             /*
             ====================
             ACTIVATE MODAL
