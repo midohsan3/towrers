@@ -11,6 +11,7 @@ use App\Http\Controllers\Api\CompanyPCotroller;
 use App\Http\Controllers\Api\ProjectPCotroller;
 use App\Http\Controllers\Api\ProductPController;
 use App\Http\Controllers\Api\RegisterController;
+use App\Http\Controllers\Api\InterestPController;
 
 /*
 |--------------------------------------------------------------------------
@@ -297,5 +298,23 @@ Route::group(
     ],
     function () {
         Route::get('/index', [CityController::class, 'index'])->name('api.job.index');
+    }
+);
+
+/*
+==================
+= INTERESTS
+==================
+*/
+
+Route::group(
+    [
+        'prefix' => '/interest', 'namespace' => 'Api'
+
+    ],
+    function () {
+        Route::get('/index', [InterestPController::class, 'index'])->name('api.job.index');
+
+        Route::post('/update', [InterestPController::class, 'update'])->name('api.job.update');
     }
 );
