@@ -12,6 +12,7 @@ use App\Http\Controllers\Api\ProjectPCotroller;
 use App\Http\Controllers\Api\ProductPController;
 use App\Http\Controllers\Api\RegisterController;
 use App\Http\Controllers\Api\InterestPController;
+use App\Http\Controllers\Api\NotificationPController;
 
 /*
 |--------------------------------------------------------------------------
@@ -313,8 +314,24 @@ Route::group(
 
     ],
     function () {
-        Route::get('/index', [InterestPController::class, 'index'])->name('api.job.index');
+        Route::get('/index', [InterestPController::class, 'index'])->name('api.interest.index');
 
-        Route::post('/update', [InterestPController::class, 'update'])->name('api.job.update');
+        Route::post('/update', [InterestPController::class, 'update'])->name('api.interest.update');
+    }
+);
+
+/*
+==================
+= NOTIFICATIONS
+==================
+*/
+
+Route::group(
+    [
+        'prefix' => '/notification', 'namespace' => 'Api'
+
+    ],
+    function () {
+        Route::get('/index_{user_id}', [NotificationPController::class, 'index'])->name('api.notification.index');
     }
 );

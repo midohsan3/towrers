@@ -50,7 +50,7 @@ class InterestPController extends Controller
     $user = User::findOrFail($req->user);
 
     if(empty($user)){
-        return json_encode(array('status' => 'empty'));
+        return json_encode(array('status' => 'user fail'));
     }
 
     $user->interest_has_user()->sync($req->interest);
