@@ -3,12 +3,13 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\UserClassifieds;
 use App\Http\Controllers\TowersController;
 use App\Http\Controllers\Person\PCvController;
 use App\Http\Controllers\Front\FrontController;
-use App\Http\Controllers\Front\SearchController;
 use App\Http\Controllers\Person\PhonController;
-use App\Http\Controllers\UserClassifieds;
+use App\Http\Controllers\Front\SearchController;
+use App\Http\Controllers\Person\PInterestController;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
 /*
@@ -140,9 +141,10 @@ Route::group(
         Route::post('/phone', [PhonController::class, 'updatePhone'])->name('person.phone.update');
     }
 );
+
 /*
 ==========================
-PERSONAL ACCOUNT ROUTS
+PERSONAL ACCOUNT CV ROUTS
 ==========================
 */
 Route::group(
@@ -157,6 +159,22 @@ Route::group(
         Route::post('/store', [PCvController::class, 'store'])->name('person.cv.store');
 
         Route::post('/update', [PCvController::class, 'update'])->name('person.cv.update');
+    }
+);
+
+/*
+================================
+PERSONAL ACCOUNT INTERESTS ROUTS
+================================
+*/
+Route::group(
+    [
+        'prefix' => LaravelLocalization::setLocale() . '/personal/dashboard/my-interests', 'namespace' => 'Personal',
+        'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath']
+    ],
+    function () {
+
+         Route::get('/', [PInterestController::class, 'index'])->name('person.interest.index');
     }
 );
 

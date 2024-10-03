@@ -165,17 +165,18 @@
                         </a>
                     </li>
 
+
+                    @endif
+                    {{-- .nk-menu-item --}}
+
                     <li class="nk-menu-item">
-                        <a href="{{ route('c-company.interest.index') }}" class="nk-menu-link">
+                        <a href="{{ route('person.interest.index') }}" class="nk-menu-link">
                             <span class="nk-menu-icon">
                                 <i class="icon fal fa-lightbulb"></i>
                             </span>
                             <span class="nk-menu-text">{{ __('general.My-Interests') }}</span>
                         </a>
                     </li>
-
-                    @endif
-                    {{-- .nk-menu-item --}}
 
                     <li class="nk-menu-heading">
                         <h6 class="overline-title text-primary-alt"></h6>

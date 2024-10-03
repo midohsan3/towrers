@@ -220,6 +220,7 @@ Route::group(
         Route::post('/update', [CJobController::class, 'update'])->name('c-company.job.update');
     }
 );
+
 /*
 ==========================
 MY-INTERESTS ROUTS
