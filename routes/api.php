@@ -6,6 +6,7 @@ use App\Http\Controllers\Api\CVPController;
 use App\Http\Controllers\Api\CityController;
 use App\Http\Controllers\Api\JopPController;
 use App\Http\Controllers\Api\HomePController;
+use App\Http\Controllers\Api\UserPController;
 use App\Http\Controllers\Api\RealsPController;
 use App\Http\Controllers\Api\CompanyPCotroller;
 use App\Http\Controllers\Api\ProjectPCotroller;
@@ -333,5 +334,23 @@ Route::group(
     ],
     function () {
         Route::get('/index_{user_id}', [NotificationPController::class, 'index'])->name('api.notification.index');
+    }
+);
+
+/*
+==================
+= PROFILE
+==================
+*/
+
+Route::group(
+    [
+        'prefix' => '/user', 'namespace' => 'Api'
+
+    ],
+    function () {
+        Route::post('/profile', [UserPController::class, 'profile'])->name('api.user.profile');
+
+        Route::post('/change_password', [UserPController::class, 'restPassword'])->name('api.user.rest_password');
     }
 );
