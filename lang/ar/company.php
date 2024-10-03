@@ -1,0 +1,66 @@
+<?php
+return [
+  'Companies List'           => 'قائمة الشركات',
+  'Company'                   => 'شركة',
+  'Communication'          => 'التواصل',
+  'Expired At'                => 'إنتهاء في',
+  'Uploads'                     => 'المستندات',
+  'Added By'                  => 'التسجيل بواسطة',
+  'System'                     => 'النظام',
+  'User'                        => 'المستخدم',
+  'In'                           => 'في',
+  'About'                      => 'عن الشركة',
+  'Communications'        => 'التواصل و الإتصال',
+  'Old Projects'              => 'سابقة الأعمال',
+  'Change Password'       => 'تغيير كلمة المرور',
+  'Password'                  => 'كلمة المرور',
+  'Change'                     => 'تغيير',
+  'No Projects' =>'لايوجد مشروعات',
+
+  'New Company'            => 'شركة جديدة',
+  'Edit Company'            => 'تعديل شركة',
+  'Company Arabic Name' => 'اسم الشركة بالعربية',
+  'Company English Name' => 'اسم الشركة بالإنجليزية',
+  'E-mail'                       => 'البريد الإلكتروني',
+  'Phone'                        => 'الهاتف',
+  'Logo'                          => 'شعار',
+  'License'                      => 'الرخصة',
+  'Responsible Person'       => 'المسئول',
+  'Responsible Person Name Here' => 'اسم المسئول هنا',
+  'Position'                      => 'المنصب',
+  'Position Here'               => 'منصب المسئول هنا',
+  'Address'                      => 'العنوان',
+  'Company Logo'             => 'شعار الشركة',
+  'Upload Logo'                => 'تحميل الشعار',
+
+  'Arabic About'                => 'بالعربية',
+  'About In Arabic Here'     => 'عن الشركة بالعربية',
+  'English About'               => 'بالإنجليزية',
+  'About In English Here'     => 'عن الشركة بالإنجليزية هنا',
+
+  'Chanel Name'                => 'وسيلة الإتصال',
+  'Chanel'                        => 'وسيلة الإتصال',
+  'Data'                          => 'البيان',
+  'URL OR Data'              => 'الرابط أو البيان',
+  'Fax'                           => 'فاكس',
+  'WhatsApp'                  => 'واتس',
+  'Face Book'                  => 'فيسبوك',
+  'Twitter'                     => 'تويتر',
+  'Instagram'                 => 'انستجرام',
+  'Telegram'                   => 'تليجرام',
+  'Tik Tok'                     => 'تيك توك',
+  'SnapChat'                 => 'سناب شات',
+  'Linked In'                  => 'لينكد إن',
+  'No chanels Yet'            => 'لا يوجد قنوات اتصال',
+
+  'Hello' => 'مرحبا',
+
+  'Logo Uploaded Successfully' => 'تم تحميل الشعار بنجاح',
+
+  'Your Account is Under Review  Shortly Admin Will Approve' => 'حسابك معلق حاليا بانتظار موافقة الإدارة سوف يتم الموافقة باسرع وقت',
+
+  'Your Account is Suspended Please Contact Us ' => 'تم تعليق حسابك مؤقتا برجاء التواصل معنا ',
+
+  'Thanks For Understanding' => 'شكرا لتفهمكم',
+
+];

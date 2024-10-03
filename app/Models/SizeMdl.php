@@ -1,0 +1,54 @@
+<?php
+
+namespace App\Models;
+
+use App\Models\ClassifiedMdl;
+use App\Models\ClassifiedPackageMdl;
+use Spatie\Permission\Traits\HasRoles;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Notifications\Notifiable;
+use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+
+class SizeMdl extends Model
+{
+    use HasFactory, Notifiable, HasRoles, SoftDeletes;
+
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+
+    protected $table = 'sizes';
+
+    protected $primaryKey = 'id';
+
+    protected $fillable   = [
+        'title', 'width', 'height', 'status'
+    ];
+
+    protected $date = ['deleted_at'];
+
+    /*
+    =========================
+    RELATIONS
+    =========================
+    */
+    public function packageSize()
+    {
+        return $this->hasMany(ClassifiedPackageMdl::class, 'size_id');
+    }
+    /**
+     * =======================
+     * =======================
+     */
+    public function classifiedSize()
+    {
+        return $this->hasMany(ClassifiedMdl::class, 'size_id');
+    }
+    /**
+     * =======================
+     * =======================
+     */
+}
