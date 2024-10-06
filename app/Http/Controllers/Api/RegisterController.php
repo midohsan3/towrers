@@ -8,8 +8,12 @@ use Illuminate\Http\Request;
 use App\Models\CommunicationMdl;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Hash;
+use Intervention\Image\Facades\Image;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Validation\Validator as ValidationValidator;
 
 class RegisterController extends Controller
 {
@@ -196,6 +200,46 @@ class RegisterController extends Controller
         } else {
             return json_encode(array('status' => 'fail'));
         }
+    }
+    /*
+    ===================
+    ===================
+    */
+    public function companyLogo(Request $req){
+        $valid = Validator::make($req->all(),[
+            'user_id'=>'required|numeric|exists:users,id',
+            'logo' => 'required|image|mimes:jpeg,png,jpg,gif',
+        ]);
+
+        if ($valid->fails()) {
+            return json_encode(array('status' => 'Validation Fail'));
+        }
+
+        if ($req->hasFile('logo')) {
+            $img = $req->file('logo');
+            $imgName = rand() . '.' . $img->getClientOriginalExtension();
+            //save file like a temp
+            $img->move(('imgs/users'), $imgName);
+            //RESIZING THE PICTURE AND MAKE A COPY WITH NEW SIZE IN STOREAGE FILE
+            $resize = Image::make("imgs/users/{$imgName}")->resize(250, 250)->encode('png');
+            Storage::put("public/imgs/users/{$imgName}", $resize->__toString());
+            //delete the file as a temp
+            File::delete('imgs/users/' . $imgName);
+        } else {
+            $imgName = null;
+        }
+
+        $user = User::find($req->user_id);
+
+        if(empty($user)){
+            return json_encode(array('status' => 'User Fail'));
+        }
+
+        $user->profile_pic = $imgName;
+        $user->save();
+
+
+        return json_encode(array('status' => 'Success'));
     }
 
 

@@ -12,6 +12,7 @@ use App\Http\Controllers\Api\CompanyPCotroller;
 use App\Http\Controllers\Api\ProjectPCotroller;
 use App\Http\Controllers\Api\ProductPController;
 use App\Http\Controllers\Api\RegisterController;
+use App\Http\Controllers\Api\CPackagePController;
 use App\Http\Controllers\Api\InterestPController;
 use App\Http\Controllers\Api\NotificationPController;
 
@@ -112,6 +113,7 @@ Route::group(
         Route::get('/products',[HomePController::class, 'products'])->name('api.home.products');
     }
 );
+
 /*
 ==================
 = REGISTRATION
@@ -130,6 +132,28 @@ Route::group(
         Route::post('/register/person',[RegisterController::class, 'person'])->name('api.register.person');
 
         Route::post('/user/login',[RegisterController::class, 'logs'])->name('api.home.login');
+
+        Route::post('/company/logo',[RegisterController::class, 'companyLogo'])->name('api.company.logo');
+    }
+);
+
+/*
+==================
+= PACKAGE
+==================
+*/
+
+Route::group(
+    [
+        'prefix' => '/package', 'namespace' => 'Api'
+
+    ],
+    function () {
+
+        Route::get('/index_{user_id}',[CPackagePController::class, 'index'])->name('api.company.package.index');
+
+        Route::get('/subscribe_{package_id}_{user_id}',[CPackagePController::class,
+        'subscribe'])->name('api.company.package.subscribe');
     }
 );
 
@@ -351,6 +375,7 @@ Route::group(
     function () {
         Route::post('/profile', [UserPController::class, 'profile'])->name('api.user.profile');
 
+        Route::post('/change_password', [UserPController::class, 'restPassword'])->name('api.user.rest_password');
         Route::post('/change_password', [UserPController::class, 'restPassword'])->name('api.user.rest_password');
     }
 );

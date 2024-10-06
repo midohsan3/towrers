@@ -163,14 +163,14 @@ class ProjectPCotroller extends Controller
         $companies = CompanyMdl::with('userCompany')->whereIn('id',$project_companies)->get();
 
         if (empty($companies)) {
-        return json_encode(array('status' => 'empty'));
+            return json_encode(array('status' => 'empty'));
 
         }elseif($companies->count() > 0){
 
-        return json_encode(array('status' => 'success', 'data' => $companies));
+            return json_encode(array('status' => 'success', 'data' => $companies));
 
         } else {
-        return json_encode(array('status' => 'fail'));
+            return json_encode(array('status' => 'fail'));
         }
     }
     /*
