@@ -376,6 +376,6 @@ Route::group(
         Route::post('/profile', [UserPController::class, 'profile'])->name('api.user.profile');
 
         Route::post('/change_password', [UserPController::class, 'restPassword'])->name('api.user.rest_password');
-        Route::post('/change_password', [UserPController::class, 'restPassword'])->name('api.user.rest_password');
+        //Route::post('/change_password', [UserPController::class, 'restPassword'])->name('api.user.rest_password');
     }
 );

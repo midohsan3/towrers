@@ -57,7 +57,7 @@ class InterestPController extends Controller
 
     return json_encode(array('status'=>'success'));
 
-    
+
     }
     /**
     * ============================

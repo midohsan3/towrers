@@ -25,15 +25,15 @@ class PInterestController extends Controller
    * ============================
    */
    public function index(){
-   if(App::getLocale()=='ar'){
-   $interests = InterestMdl::where([['name_en','!=','General'],['status',1]])->orderBy('name_ar','asc')->get();
-   }else{
-   $interests = InterestMdl::where([['name_en','!=','General'],['status',1]])->orderBy('name_en','asc')->get();
-   }
+        if(App::getLocale()=='ar'){
+                $interests = InterestMdl::where([['name_en','!=','General'],['status',1]])->orderBy('name_ar','asc')->get();
+        }else{
+                $interests = InterestMdl::where([['name_en','!=','General'],['status',1]])->orderBy('name_en','asc')->get();
+        }
 
-   $userInterests = UserInterestMdl::select('user_id','interest_id')->get()->pluck('user_id','interest_id')->all();
+        $userInterests = UserInterestMdl::select('user_id','interest_id')->get()->pluck('user_id','interest_id')->all();
 
-   return view('interest.choose',compact('interests','userInterests'));
+        return view('interest.choose',compact('interests','userInterests'));
    }
    /**
    * ============================

@@ -21,7 +21,7 @@ class UserPController extends Controller
         'user_id'=>'required|numeric|exists:users,id',
         'phone'  =>'required',
       ]);
-      
+
       if($valid->fails()){
          return json_encode(array('status' => 'fail'));
       }
@@ -39,7 +39,7 @@ class UserPController extends Controller
     }
     /**
     * ============================
-    * 
+    *
     * ============================
     */
     public function restPassword(Request $req){
@@ -71,7 +71,7 @@ class UserPController extends Controller
     }
     /**
     * ============================
-    * 
+    *
     * ============================
     */
 }
