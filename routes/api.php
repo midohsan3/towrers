@@ -376,6 +376,13 @@ Route::group(
         Route::post('/profile', [UserPController::class, 'profile'])->name('api.user.profile');
 
         Route::post('/change_password', [UserPController::class, 'restPassword'])->name('api.user.rest_password');
-        //Route::post('/change_password', [UserPController::class, 'restPassword'])->name('api.user.rest_password');
+
+        Route::get('/grade_{user_id}', [UserPController::class, 'grade'])->name('api.user.grade');
+
+        Route::post('/grade/store', [UserPController::class, 'sectionStore'])->name('api.user.grade.store');
+
+        Route::get('/company/major_{user_id}', [UserPController::class, 'major'])->name('api.user.major');
+        
+        Route::post('/company/major/store', [UserPController::class, 'majorStore'])->name('api.user.major.store');
     }
 );
